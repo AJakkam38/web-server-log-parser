@@ -18,8 +18,9 @@ help:
 	@echo "				Runs the docker image as container"
 	@echo "make stop"
 	@echo "				Stops and removes the docker container"
+	@echo " "
 	@echo "make run LOGS_URL=url_for_logs.txt START=start_time END=end_time ERRORCODE=error_code"
-	@echo "				Command to run the python script"
+	@echo "																							Command to run the python script"
 
 build: Dockerfile
 	@echo "Building Docker Image..."
