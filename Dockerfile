@@ -11,4 +11,4 @@ ADD nginx-log-parser.py /log-parser/nginx-log-parser.py
 
 RUN pip install pytz
 
-RUN cd log-parser
+ENTRYPOINT [ "python3", "nginx-log-parser.py" ]

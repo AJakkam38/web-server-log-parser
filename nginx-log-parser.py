@@ -32,14 +32,14 @@ def log_parser(log_file_url, start_time, end_time, error_code):
     
     try:
         file = urllib.request.urlopen(log_file_url)
-        logging.info(f'Reading the logs from file...')
+        logging.info('Reading the logs from file...')
         
         for line in file:
             decoded_line = line.decode("utf-8")
             log = re.search(log_format, decoded_line)
             if log:
                 total += 1
-                logging.info(f'Calculating the count of response codes...')
+                logging.info('Calculating the count of response codes...')
                 date_time = log.group('datetime')
                 log_datetime = tz.normalize(datetime.strptime(date_time, '%d/%b/%Y:%H:%M:%S %z'))
 
@@ -49,7 +49,7 @@ def log_parser(log_file_url, start_time, end_time, error_code):
                     elif log.group('statuscode') == error_code:
                         status_error_code += 1
 
-        logging.info(f'Calculating the percent of response codes...')
+        logging.info('Calculating the percent of response codes...')
         return {
             'Total':total,
             '200_code': status_200, 

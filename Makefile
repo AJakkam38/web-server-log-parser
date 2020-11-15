@@ -37,4 +37,5 @@ stop:
 	docker rm $(CONTAINERNAME)
 
 run:
-	python3 nginx-log-parser.py --log_file_url $(LOGS_URL) --start_time $(START) --end_time $(END) --error_code $(ERRORCODE)
+	@echo "Excecuting python script..."
+	docker exec $(CONTAINERNAME) python3 nginx-log-parser.py --log_file_url $(LOGS_URL) --start_time $(START) --end_time $(END) --error_code $(ERRORCODE)
